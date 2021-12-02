@@ -32,9 +32,9 @@ pub fn sol(input: &String) {
 
     // Translate text into easily parseable instructions
     let input = input.trim()
-    .split("\n")
-    .map(translate_instructions)
-    .collect::<Vec<(Dir, i32)>>(); 
+        .split("\n")
+        .map(translate_instructions)
+        .collect::<Vec<(Dir, i32)>>(); 
     
     let (pos1, depth1) = input.iter()
         .fold((0,0), part1);
