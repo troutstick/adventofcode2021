@@ -45,8 +45,6 @@ pub fn sol(input: &String) {
             .map(sum_to_flag)
             .collect::<String>();
 
-        println!("binstr: {}", bin_str);
-
         i32::from_str_radix(bin_str.as_str(), 2).unwrap()
     };
     
