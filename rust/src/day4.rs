@@ -1,23 +1,21 @@
 struct Board {
-    nums: [[usize;5];5],
-    marked: [[bool;5];5],
+    nums: [[usize; 5]; 5],
+    marked: [[bool; 5]; 5],
     has_won: bool,
 }
 
 pub fn sol(input: &String) {
-    let mut lines = input.trim()
-        .split("\n\n");
-        
-    let drawn_nums = lines.next().unwrap()
+    let mut lines = input.trim().split("\n\n");
+
+    let drawn_nums = lines
+        .next()
+        .unwrap()
         .trim()
         .split(",")
         .map(|s| s.parse::<usize>().unwrap())
         .collect::<Vec<usize>>();
-        
-        
-    let mut boards = lines
-        .map(Board::new)
-        .collect::<Vec<Board>>();
+
+    let mut boards = lines.map(Board::new).collect::<Vec<Board>>();
     let (first, last) = play_game(&mut boards, &drawn_nums);
     println!("The answer to Day 4 Part 1 is {}", first);
     println!("The answer to Day 4 Part 2 is {}", last);
@@ -42,7 +40,6 @@ fn play_game(boards: &mut Vec<Board>, drawn_nums: &Vec<usize>) -> (usize, usize)
     (first, last)
 }
 
-
 impl Board {
     fn get_score(&self, winning_n: usize) -> usize {
         let mut sum = 0;
@@ -57,14 +54,10 @@ impl Board {
     }
 
     fn is_won(&self) -> bool {
-        let is_won_col = |i: usize| {
-            self.marked.iter().all(|r| r[i])
-        };
+        let is_won_col = |i: usize| self.marked.iter().all(|r| r[i]);
 
-        let is_won_row = |i: usize| {
-            self.marked[i].iter().all(|w| *w)
-        };
-        
+        let is_won_row = |i: usize| self.marked[i].iter().all(|w| *w);
+
         (0..5).any(|i| is_won_row(i) || is_won_col(i))
     }
 
@@ -75,7 +68,7 @@ impl Board {
                     self.marked[i][j] = true;
                 }
             }
-        };
+        }
         if !self.has_won && self.is_won() {
             self.has_won = true;
             true
@@ -86,21 +79,20 @@ impl Board {
 
     fn new(s: &str) -> Board {
         let nums = {
-            let nums = s.split_ascii_whitespace()
+            let nums = s
+                .split_ascii_whitespace()
                 .map(|s| s.parse::<usize>().unwrap());
-            let mut arr = [[0;5];5];
+            let mut arr = [[0; 5]; 5];
             for (i, n) in nums.enumerate() {
-                arr[i/5][i%5] = n;
+                arr[i / 5][i % 5] = n;
             }
             arr
         };
-        
+
         Board {
             nums,
-            marked: [[false;5];5],
+            marked: [[false; 5]; 5],
             has_won: false,
         }
     }
 }
-
-
