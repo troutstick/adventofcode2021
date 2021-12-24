@@ -1,7 +1,7 @@
 const MASK: i32 = 0xFFF;
 const NUMS_WIDTH: usize = 12;
 
-pub fn sol(input: &String) {
+pub fn sol(input: &str) {
     let numify = |bin_str: &str| {
         bin_str
             .chars()

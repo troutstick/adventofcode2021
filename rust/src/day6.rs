@@ -1,4 +1,4 @@
-pub fn sol(input: &String) {
+pub fn sol(input: &str) {
     let mut age_to_num_fish = [0; 9];
     let input = input.trim().split(",").map(|s| s.parse::<usize>().unwrap());
 

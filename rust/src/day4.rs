@@ -4,7 +4,7 @@ struct Board {
     has_won: bool,
 }
 
-pub fn sol(input: &String) {
+pub fn sol(input: &str) {
     let mut lines = input.trim().split("\n\n");
 
     let drawn_nums = lines

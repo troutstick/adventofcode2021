@@ -1,4 +1,4 @@
-pub fn sol(input: &String) {
+pub fn sol(input: &str) {
     let input = input
         .split_whitespace()
         .map(|s| s.parse::<i64>().unwrap())

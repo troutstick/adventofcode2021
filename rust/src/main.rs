@@ -8,6 +8,7 @@ mod day3;
 mod day4;
 mod day5;
 mod day6;
+mod day7;
 
 fn main() {
     let paths = fs::read_dir(INPUTS_DIR).unwrap();
@@ -24,6 +25,7 @@ fn main() {
             "day5.txt" => day5::sol(&input),
             "day5test.txt" => (),
             "day6.txt" => day6::sol(&input),
+            "day7.txt" => day7::sol(&input),
             _ => panic!("Solution not implemented yet for {}", filename),
         }
     }

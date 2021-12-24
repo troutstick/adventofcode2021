@@ -73,7 +73,7 @@ impl Line {
 #[derive(Hash, PartialEq, Eq, Debug)]
 struct Coord(usize, usize);
 
-pub fn sol(input: &String) {
+pub fn sol(input: &str) {
     let input = input
         .trim()
         .split("\n")

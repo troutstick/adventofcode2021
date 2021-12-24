@@ -1,4 +1,4 @@
-pub fn sol(input: &String) {
+pub fn sol(input: &str) {
     enum Dir {
         Up,
         Down,
