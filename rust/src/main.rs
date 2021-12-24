@@ -26,6 +26,7 @@ fn main() {
             "day5test.txt" => (),
             "day6.txt" => day6::sol(&input),
             "day7.txt" => day7::sol(&input),
+            "day7test.txt" => day7::sol(&input),
             _ => panic!("Solution not implemented yet for {}", filename),
         }
     }
